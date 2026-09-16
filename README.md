@@ -1,6 +1,6 @@
 # European day-ahead electricity prices
 
-Day-ahead auction prices for **12 European bidding zones**, back to January
+Day-ahead auction prices for **39 European bidding zones**, back to January
 2022, as plain CSV. Updated every day, automatically.
 
 No account, no API key, no XML. `git clone` or a single `curl`.
@@ -31,12 +31,12 @@ third time.
 
 | | |
 |---|---|
-| **Zones** | CZ · DE-LU · AT · SK · PL · HU · SI · FR · NL · BE · ES · IT-North |
-| **From** | 1 January 2022 |
+| **Zones** | AT · BE · CH · CZ · DE-LU · DK1 · DK2 · EE · ES · FI · FR · GB · GR · HR · HU · IT-North · IT-CNorth · IT-CSouth · IT-South · IT-Sicily · IT-Sardinia · LT · LV · NL · NO1 · NO2 · NO3 · NO4 · NO5 · PL · PT · RO · RS · SE1 · SE2 · SE3 · SE4 · SI · SK |
+| **From** | 2021-12-31 |
 | **Updated** | daily, a few hours after each auction clears |
 | **Unit** | EUR/MWh, the day-ahead auction result |
 | **Source** | [ENTSO-E Transparency Platform](https://transparency.entsoe.eu) |
-| **Size** | about 40 MB |
+| **Size** | about 96 MB |
 
 ```
 data/2026/2026-09-15.csv      one delivery day, all zones
@@ -135,7 +135,23 @@ This is not a contractual reference. Do not settle trades against it.
 - [A practical guide to the ENTSO-E API](https://progrunners.com/entso-e-api/) —
   document types, resolutions, publication delays
 - [Live European prices](https://progrunners.com/european-electricity-prices/) —
-  today's numbers in a table, 38 zones
+  today's numbers for 38 zones, with a national page per market:
+  [Spain](https://progrunners.com/es/precio-luz-hoy/) ·
+  [Germany](https://progrunners.com/de/strompreis-boerse/) ·
+  [Austria](https://progrunners.com/at/strompreis-oesterreich/) ·
+  [Estonia](https://progrunners.com/et/elektri-hind/) ·
+  [Finland](https://progrunners.com/fi/sahkon-hinta/) ·
+  [Sweden](https://progrunners.com/sv/elpriser-idag/) ·
+  [Norway](https://progrunners.com/no/strompriser-i-dag/) ·
+  [Denmark](https://progrunners.com/da/elpriser-i-dag/) ·
+  [Lithuania](https://progrunners.com/lt/elektros-kaina/) ·
+  [Latvia](https://progrunners.com/lv/elektribas-cena/) ·
+  [Netherlands](https://progrunners.com/nl/stroomprijs/) ·
+  [Poland](https://progrunners.com/pl/ceny-pradu/) ·
+  [France](https://progrunners.com/fr/prix-electricite/) ·
+  [Italy](https://progrunners.com/it/prezzi-zonali/) ·
+  [Slovenia](https://progrunners.com/sl/cena-elektrike/) ·
+  [Czechia](https://progrunners.com/cs/spotova-cena-elektriny/)
 
 Maintained by [progrunners](https://progrunners.com/) — trading dashboards and
 market data pipelines for European power markets.
