@@ -81,14 +81,22 @@ df['timestamp_utc'] = pd.to_datetime(df.timestamp_utc)
 
 ## Read this before you use the numbers
 
-**Two resolutions can coexist, and mixing them is a real mistake.** Germany
-and Austria clear an hourly *and* a quarter-hourly day-ahead product — two
-different auctions with two different prices for the same clock time. Both are
-in here, distinguished by `resolution_min`. If you filter on zone alone you
-will get 120 rows for one German day and a mean that belongs to neither
-product. **Always filter on `resolution_min` as well.** Most other zones moved
-from hourly to 15-minute products during 2025, so a long series changes
-resolution partway through.
+**Day-ahead only, one series per zone.** ENTSO-E returns several price series
+in one response: the day-ahead auction, intraday auctions, and — where the
+market runs both — an hourly and a quarter-hourly product for the same clock
+time. Until 19 September 2026 this dataset mixed them, so a German day carried
+two prices for the same hour and a naive mean belonged to neither product.
+
+Now only the day-ahead auction is kept, identified by
+`contract_MarketAgreement.type` A01 and the first classification sequence. That
+is the series every reference publishes as *the* spot price — for Germany on
+10 May 2022 it is the hourly 183.32 EUR/MWh, not the quarter-hourly 183.71 of
+the separate auction.
+
+`resolution_min` still matters, because the resolution of the day-ahead itself
+changed: most zones moved from hourly to 15-minute products during 2025, so a
+long series changes resolution partway through. It no longer distinguishes two
+products within one zone and day.
 
 **Timestamps are UTC**, and mark the *start* of the interval. Bidding zones
 live in local time, so a delivery day is not a calendar day in this file —
@@ -104,9 +112,16 @@ zero is cheaper than curtailing. The floor is −500 EUR/MWh in most zones.
 bill. Grid fees, levies, taxes and supplier margin sit on top, and they are
 usually larger than this number.
 
-**Gaps happen.** A missing hour is almost always missing at the source, not
-lost here — occasionally a zone publishes 23 points for a day with no DST
-involved. Check, don't assume.
+**Gaps.** Until 19 September 2026 this dataset had holes in it — about 10 %
+of rows — and this file used to blame the source for them. That was wrong.
+ENTSO-E compresses runs of equal prices (`curveType` A03): it sends the first
+interval of a run and omits the rest, and the collector here read it
+position-by-position, so those intervals disappeared. The history has been
+re-fetched and the collector fixed. If you pulled data before that date, pull
+it again.
+
+A genuine gap is still possible — a zone occasionally publishes 23 points for
+a day with no DST involved. Check, don't assume.
 
 ## How it stays current
 
