@@ -149,9 +149,6 @@ This is not a contractual reference. Do not settle trades against it.
   codes used here, plus the traps that come with them
 - [A practical guide to the ENTSO-E API](https://progrunners.com/entso-e-api/) —
   document types, resolutions, publication delays
-- [curveType A03: the gap that eats 10 % of prices](https://progrunners.com/entsoe-curvetype-a03/) —
-  how the platform omits repeated intervals, what it does to a daily average,
-  and how to check a series you already have.
 - [Live European prices](https://progrunners.com/european-electricity-prices/) —
   today's numbers for 38 zones, with a national page per market:
   [Spain](https://progrunners.com/es/precio-luz-hoy/) ·
@@ -171,5 +168,10 @@ This is not a contractual reference. Do not settle trades against it.
   [Slovenia](https://progrunners.com/sl/cena-elektrike/) ·
   [Czechia](https://progrunners.com/cs/spotova-cena-elektriny/)
 
-Maintained by [progrunners](https://progrunners.com/) — trading dashboards and
-market data pipelines for European power markets.
+Maintained by [progrunners](https://progrunners.com/open-source/) — we build
+trading dashboards and market data pipelines for European power markets, and
+publish the parts that are useful on their own.
+
+**All of it in one place:** [progrunners.com/open-source](https://progrunners.com/open-source/)
+— six repositories, what each one is for, and the one mistake worth reading
+about before you trust any price series, ours included.
