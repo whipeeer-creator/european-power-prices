@@ -149,6 +149,9 @@ This is not a contractual reference. Do not settle trades against it.
   codes used here, plus the traps that come with them
 - [A practical guide to the ENTSO-E API](https://progrunners.com/entso-e-api/) —
   document types, resolutions, publication delays
+- [curveType A03: the gap that eats 10 % of prices](https://progrunners.com/entsoe-curvetype-a03/) —
+  how the platform omits repeated intervals, what it does to a daily average,
+  and how to check a series you already have.
 - [Live European prices](https://progrunners.com/european-electricity-prices/) —
   today's numbers for 38 zones, with a national page per market:
   [Spain](https://progrunners.com/es/precio-luz-hoy/) ·
